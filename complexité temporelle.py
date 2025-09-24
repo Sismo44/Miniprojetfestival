@@ -30,8 +30,8 @@ duree_glouton = calculs_durees(glouton(scenes), scenes)     # ordonnées
 nbre_elements = [n for n in range(0, len(scenes))]  # abscisses
 
 # Tracé
-plt.plot(nbre_elements, duree_exhaustif, "+", color="blue", label="algorithme exhaustif")
-plt.plot(nbre_elements, duree_glouton, ".", color="red", label="algorithme glouton")
+plt.plot(nbre_elements_total, duree_exhaustif, "+", color="blue", label="algorithme exhaustif")
+plt.plot(nbre_elements_total, duree_glouton, ".", color="red", label="algorithme glouton")
 plt.legend()
 plt.grid()
 plt.show()
