@@ -1,6 +1,7 @@
 from random import randint
 from time import time, perf_counter
 from matplotlib import pyplot as plt
+from gloutonetexhaustif.py import *
 
 
 nbre_elements_total = 500
