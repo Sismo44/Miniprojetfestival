@@ -1,9 +1,10 @@
+#modules
 from random import randint
 from time import time, perf_counter
 from matplotlib import pyplot as plt
 from gloutonetexhaustif.py import *
 
-
+#echelle 
 nbre_elements_total = 500
 ensemble_listes = [ [randint(1, 1000) for _ in range(n)] for n in range(2, nbre_elements_total)]
 for liste in ensemble_listes:
@@ -24,7 +25,7 @@ def calculs_durees(fonction, scene):
         mesures_temps.append(end-start)
     return mesures_temps
 
-
+#creation du repere
 duree_exhaustif = calculs_durees(exhaustif(scenes), scenes) 
 duree_glouton = calculs_durees(glouton(scenes), scenes)     # ordonnées
 nbre_elements = [n for n in range(0, len(scenes))]  # abscisses
