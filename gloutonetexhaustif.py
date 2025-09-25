@@ -9,11 +9,15 @@ scenes = {"dave": (0, 0),
           "bruce": (450, 250)
           }
 
+
 def distance(scene, A, B):
     x1, y1 = scene[A]
     x2, y2 = scene[B]
     return sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
+
+###########################
+# Prendre en compte les autres scènes, en FONCTION DES SOUHAITS
 def glouton(scene):
     d_massey = distance(scene, "dave", "massey")
     d_suppo = distance(scene, "dave", "suppo")
@@ -35,6 +39,8 @@ def glouton(scene):
 print(glouton(scenes))
 
 
+################################
+# seulement 2 chemins possibles sur 4 horaires !!??
 def exhaustif(scene):
     # Chemin 1
     chemin1 = ["dave", "massey", "suppo", "dave"]
@@ -51,18 +57,21 @@ def exhaustif(scene):
 
 print(exhaustif(scenes))
 
+#########################################
+# Je ne comprends pas ce que fait ce code ici
 nbre_elements_total = 500
 ensemble_listes = [ [randint(1, 1000) for _ in range(n)] for n in range(2, nbre_elements_total)]
 for liste in ensemble_listes:
     liste.sort(reverse=True)
 
-# Calculs des durées
+
+# Calculs des durées 
 def calculs_durees(fonction, scene):
     """ Mesure des durées d'exécution de la fonction
     E:  fonction (object) fonction à exécuter
         scene (list) liste des scenes
     S:  mesures_temps (list)
-    """
+    """ 
     mesures_temps = []
     for i in scenes:
         start = perf_counter()
@@ -71,6 +80,10 @@ def calculs_durees(fonction, scene):
         mesures_temps.append(end-start)
     return mesures_temps
 
+
+#################################
+# le tracé se fait sur le parcours, par sur la durée 
+# --> positions successives du festivalier
 
 duree_exhaustif = calculs_durees(exhaustif(scenes), scenes) 
 duree_glouton = calculs_durees(glouton(scenes), scenes)     # ordonnées
